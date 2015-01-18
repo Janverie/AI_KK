@@ -23,7 +23,7 @@ public class AI_KK_GUI extends javax.swing.JFrame {
     Wezel NajWez = new Wezel();
     ArrayList<Wezel> Wezly = new ArrayList();
     boolean button = true;
-    
+   
     /**
      * Creates new form AI_KK_GUI
      */
@@ -173,7 +173,7 @@ public class AI_KK_GUI extends javax.swing.JFrame {
     
     
     private void ruchKomputera(){
-           for(int e=0; e<Rozmiar; e++){
+         for(int e=0; e<Rozmiar; e++){
             for(int f=0; f<Rozmiar; f++)
             {
              if(f<7) if(Plansza[e][f]==1 && Plansza[e][f+1]==1 && Plansza[e][f+2]==1 && Plansza[e][f+3]==1)  {jLabel1.setText("Wygrana gracza!!"); JOptionPane.showMessageDialog(null, "You won!");}
@@ -182,8 +182,7 @@ public class AI_KK_GUI extends javax.swing.JFrame {
              if(e<7) if(Plansza[e][f]==2 && Plansza[e+1][f]==2 && Plansza[e+2][f]==2 && Plansza[e+3][f]==2)  {jLabel1.setText("Wygrana komputera !!"); JOptionPane.showMessageDialog(null, "Game over!");}
                    
             }
-        }
-        
+        }        
           
         
         if(PierwszyRuch && rb_komp.isSelected()){
@@ -830,11 +829,27 @@ public class AI_KK_GUI extends javax.swing.JFrame {
             }
         }
         Wezly.retainAll(Wezly);
-        System.out.println(NajWez.Wynik);
+        System.out.println("wynik: " + NajWez.Wynik);
         Plansza[NajWez.x][NajWez.y]=2;
         NajWez.Wynik=10000;
         panel.uaktualnijObraz(Plansza);
         panel.repaint();
+    
+    
+        for(int e=0; e<Rozmiar; e++){
+            for(int f=0; f<Rozmiar; f++)
+            {
+             if(f<7) if(Plansza[e][f]==1 && Plansza[e][f+1]==1 && Plansza[e][f+2]==1 && Plansza[e][f+3]==1)  {jLabel1.setText("Wygrana gracza!!"); JOptionPane.showMessageDialog(null, "You won!");}
+             if(e<7) if(Plansza[e][f]==1 && Plansza[e+1][f]==1 && Plansza[e+2][f]==1 && Plansza[e+3][f]==1)  {jLabel1.setText("Wygrana gracza!!"); JOptionPane.showMessageDialog(null, "You won!");}
+             if(f<7) if(Plansza[e][f]==2 && Plansza[e][f+1]==2 && Plansza[e][f+2]==2 && Plansza[e][f+3]==2)  {jLabel1.setText("Wygrana komputera !!"); JOptionPane.showMessageDialog(null, "Game over!");}
+             if(e<7) if(Plansza[e][f]==2 && Plansza[e+1][f]==2 && Plansza[e+2][f]==2 && Plansza[e+3][f]==2)  {jLabel1.setText("Wygrana komputera !!"); JOptionPane.showMessageDialog(null, "Game over!");}
+                   
+            }
+        }    
+    
+    
+    
+    
     }
     
     
@@ -889,6 +904,8 @@ class Wezel{
    public int y;
    public int Wynik=1000;
 };
+
+
 class MP extends JPanel{
     
     int[][] P;
